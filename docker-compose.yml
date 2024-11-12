@@ -3,6 +3,19 @@ services:
     build: .
     ports:
       - "3000:3000"
+    links:
+      - mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin.123456
+
     container_name: backend
     image: backend
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    
     
